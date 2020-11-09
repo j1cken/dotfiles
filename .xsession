@@ -1,0 +1,17 @@
+#exec setxkbmap dvorak &
+setxkbmap -layout us -variant dvp &
+#exec feh --bg-center Pictures/42960-shark-at-the-bottom-of-the-sea-1920x1200-animal-wallpaper.jpg &
+#exec feh --bg-scale /home/torben/Pictures/tv-noise-20108.jpg &
+#exec sudo bluetoothctl connect 00:58:50:4D:30:FE &
+exec xfce4-terminal &
+#exec chrome &
+#exec chromium-browser &
+exec firefox &
+#exec opera &
+exec clipit -n &
+#exec xmodmap /home/torben/.Xmodmap &
+exec bash /home/torben/bin/keyboard-delay &
+exec bash /home/torben/development/dwm_sss/dwm-sss &
+#exec polybar --reload example &
+exec bash ~/bin/slack &
+
