@@ -16,8 +16,9 @@ export ZSH="/home/torben/.oh-my-zsh"
 # load a random theme each time oh-my-zsh is loaded, in which case,
 # to know which specific one was loaded, run: echo $RANDOM_THEME
 # See https://github.com/robbyrussell/oh-my-zsh/wiki/Themes
-#ZSH_THEME="avit"
-ZSH_THEME="agnoster"
+#ZSH_THEME="agnoster"
+#ZSH_THEME="josh"
+ZSH_THEME="random"
 
 # Set list of themes to pick from when loading at random
 # Setting this variable when ZSH_THEME=random will cause zsh to load
@@ -79,6 +80,7 @@ ZSH_THEME="agnoster"
 # Add wisely, as too many plugins slow down shell startup.
 plugins=(git zsh-autosuggestions zsh-kubectl-prompt sudo)
 
+DISABLE_MAGIC_FUNCTIONS=true
 source $ZSH/oh-my-zsh.sh
 
 # User configuration
@@ -107,8 +109,12 @@ source $ZSH/oh-my-zsh.sh
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
-autoload -U +X bashcompinit && bashcompinit
+autoload -U +X compinit && compinit
 complete -o nospace -C /usr/local/bin/odo odo
+# Completion for kitty
+kitty + complete setup zsh | source /dev/stdin
+
+alias ssh="kitty +kitten ssh"
 
 #MAVEN_OPTS="-XX:+UseShenandoahGC -XX:+TieredCompilation -XX:TieredStopAtLevel=1"
 

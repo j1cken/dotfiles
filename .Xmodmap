@@ -1,10 +1,10 @@
-keycode  28 = y Y yen
-keycode  33 = l L sterling
+keycode  43 = y Y yen
+keycode  58 = l L sterling
 keycode  38 = a A adiaeresis Adiaeresis
-keycode  39 = o O odiaeresis Odiaeresis
-keycode  40 = e E EuroSign
-keycode  41 = u U udiaeresis Udiaeresis
-keycode  47 = s S ssharp
+keycode  46 = o O odiaeresis Odiaeresis
+keycode  45 = e E EuroSign
+keycode  31 = u U udiaeresis Udiaeresis
+keycode  39 = s S ssharp
 keycode 108 = Mode_switch Mode_switch Mode_switch Mode_switch
 
 !keycode  10 = ampersand 1 ampersand 1
