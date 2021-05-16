@@ -1,3 +1,6 @@
+#
+# ... install
+#
 # sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
 # git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions
 # git clone https://github.com/superbrothers/zsh-kubectl-prompt.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-kubectl-prompt
@@ -84,6 +87,8 @@ DISABLE_MAGIC_FUNCTIONS=true
 source $ZSH/oh-my-zsh.sh
 
 # User configuration
+ZSH_AUTOSUGGEST_USE_ASYNC=true
+ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE="fg=#000000,bg=cyan,bold,underline"
 
 # export MANPATH="/usr/local/man:$MANPATH"
 
@@ -111,10 +116,11 @@ source $ZSH/oh-my-zsh.sh
 
 autoload -U +X compinit && compinit
 complete -o nospace -C /usr/local/bin/odo odo
-# Completion for kitty
-kitty + complete setup zsh | source /dev/stdin
 
-alias ssh="kitty +kitten ssh"
+# Completion for kitty
+#kitty + complete setup zsh | source /dev/stdin
+
+#alias ssh="kitty +kitten ssh"
 
 #MAVEN_OPTS="-XX:+UseShenandoahGC -XX:+TieredCompilation -XX:TieredStopAtLevel=1"
 
