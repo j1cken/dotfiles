@@ -16,5 +16,6 @@ bash /home/torben/bin/keyboard-delay &
 bash /home/torben/development/dwm_sss/dwm-sss &
 #exec polybar --reload example &
 bash ~/bin/slack &
+bash ~/bin/mattermost &
 xmodmap /home/torben/.Xmodmap &
 ssh -MNf hetzner2 &
