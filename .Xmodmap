@@ -1,3 +1,9 @@
+! Exchange left Alt and left Win
+remove mod1 = Alt_L
+remove mod4 = Super_L
+add mod1 = Super_L
+add mod4 = Alt_L
+
 keycode  43 = y Y yen
 keycode  58 = l L sterling
 keycode  38 = a A adiaeresis Adiaeresis
@@ -6,6 +12,8 @@ keycode  45 = e E EuroSign
 keycode  31 = u U udiaeresis Udiaeresis
 keycode  39 = s S ssharp
 keycode 108 = Mode_switch Mode_switch Mode_switch Mode_switch
+!keycode 64 = Super_L NoSymbol Super_L  
+!keycode 133 = Alt_L Meta_L Alt_L Meta_L
 
 !keycode  10 = ampersand 1 ampersand 1
 !keycode  11 = bracketleft 2 bracketleft 2 currency NoSymbol currency
