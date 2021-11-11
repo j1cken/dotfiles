@@ -22,6 +22,9 @@ set $term alacritty
 # set $menu dmenu_path | dmenu | xargs swaymsg exec --
 set $menu dmenu_path | wofi --gtk-dark --dmenu | xargs swaymsg exec --
 
+default_orientation vertical
+gaps inner 10
+
 ### Output configuration
 #
 # Default wallpaper (more resolutions are available in /usr/share/backgrounds/sway/)
@@ -239,5 +242,9 @@ input "7847:36870:Turing_Gaming_Keyboard_Turing_Gaming_Keyboard" {
    repeat_rate 40
    xkb_options grp:alt_shift_toggle
 }
+
+# autostart
+exec alacritty
+exec google-chrome
 
 include /etc/sway/config.d/*
