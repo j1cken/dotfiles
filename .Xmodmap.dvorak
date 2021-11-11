@@ -1,0 +1,21 @@
+keycode  28 = y Y yen
+keycode  33 = l L sterling
+keycode  38 = a A adiaeresis Adiaeresis
+keycode  39 = o O odiaeresis Odiaeresis
+keycode  40 = e E EuroSign
+keycode  41 = u U udiaeresis Udiaeresis
+keycode  47 = s S ssharp
+keycode 108 = Mode_switch Mode_switch Mode_switch Mode_switch
+
+!keycode  10 = ampersand 1 ampersand 1
+!keycode  11 = bracketleft 2 bracketleft 2 currency NoSymbol currency
+!keycode  12 = braceleft 3 braceleft 3 cent NoSymbol cent
+!keycode  13 = braceright 4 braceright 4 yen NoSymbol yen
+!keycode  14 = parenleft 5 parenleft 5 EuroSign NoSymbol EuroSign
+!keycode  15 = equal 6 equal 6 sterling NoSymbol sterling
+!keycode  16 = asterisk 7 asterisk 7
+!keycode  17 = parenright 8 parenright 8 onehalf NoSymbol onehalf
+!keycode  18 = plus 9 plus 9
+!keycode  19 = bracketright 0 bracketright 0
+!keycode  20 = exclam percent exclam percent exclamdown U2E18 exclamdown U2E18
+!
