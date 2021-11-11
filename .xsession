@@ -18,4 +18,4 @@ bash /home/torben/development/dwm_sss/dwm-sss &
 bash ~/bin/slack &
 bash ~/bin/mattermost &
 xmodmap /home/torben/.Xmodmap &
-ssh -MNf hetzner2 &
+ssh -MNf hetzner &

@@ -124,3 +124,14 @@ complete -o nospace -C /usr/local/bin/odo odo
 
 #MAVEN_OPTS="-XX:+UseShenandoahGC -XX:+TieredCompilation -XX:TieredStopAtLevel=1"
 
+alias butane='podman run --rm --tty --interactive \
+              --security-opt label=disable        \
+              --volume ${PWD}:/pwd --workdir /pwd \
+              quay.io/coreos/butane:release'
+
+source <(oc completion zsh)
+
+
+# Add JBang to environment
+alias j!=jbang
+export PATH="$HOME/.jbang/bin:$PATH"
