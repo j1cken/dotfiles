@@ -26,7 +26,7 @@ set $menu dmenu_path | wofi --gtk-dark --dmenu | xargs swaymsg exec --
 #
 # Default wallpaper (more resolutions are available in /usr/share/backgrounds/sway/)
 # output * bg /usr/share/backgrounds/default.png fill
-output * bg /home/torben/Pictures/'Screenshot from 2021-10-19 19-37-29.png' fit
+output * bg /home/torben/Pictures/tv-noise-20108.jpg fit
 
 #
 # Example configuration:
