@@ -207,6 +207,17 @@ mode "resize" {
 }
 bindsym $mod+r mode "resize"
 
+bindsym XF86AudioRaiseVolume pactl set-sink-volume @DEFAULT_SINK@ +5%
+bindsym XF86AudioLowerVolume pactl set-sink-volume @DEFAULT_SINK@ -5%
+bindsym XF86AudioMute pactl set-sink-mute @DEFAULT_SINK@ toggle
+bindsym XF86AudioMicMute pactl set-source-mute @DEFAULT_SOURCE@ toggle
+bindsym XF86MonBrightnessDown brightnessctl set 5%-
+bindsym XF86MonBrightnessUp brightnessctl set +5%
+bindsym XF86AudioPlay playerctl play-pause
+bindsym XF86AudioNext playerctl next
+bindsym XF86AudioPrev playerctl previous
+bindsym XF86Search bemenu-run
+
 #
 # Status Bar:
 #
@@ -246,5 +257,10 @@ input "7847:36870:Turing_Gaming_Keyboard_Turing_Gaming_Keyboard" {
 # autostart
 exec alacritty
 exec google-chrome
+exec /home/torben/bin/mattermost
+exec /home/torben/bin/slack
+
+bindsym $mod+q clipman pick -t wofi
+exec wl-paste -t text --watch clipman store --no-persist
 
 include /etc/sway/config.d/*
