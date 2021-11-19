@@ -239,16 +239,16 @@ bar {
 
 # default layout
 input "1:1:AT_Translated_Set_2_keyboard" {
-   xkb_layout us
-   xkb_variant workman
+   xkb_layout us-dvorak-umlauts,de
+   xkb_variant dvorak,nodeadkeys
    repeat_delay 180
    repeat_rate 40
 }
 # external keyboard
 # man 7 xkeyboard-config
 input "7847:36870:Turing_Gaming_Keyboard_Turing_Gaming_Keyboard" {
-   xkb_layout us,de
-   xkb_variant workman,nodeadkeys
+   xkb_layout us-dvorak-umlauts,de
+   xkb_variant dvorak,nodeadkeys
    repeat_delay 180
    repeat_rate 40
    xkb_options grp:alt_shift_toggle
