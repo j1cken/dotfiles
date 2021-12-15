@@ -129,8 +129,10 @@ alias butane='podman run --rm --tty --interactive \
               --volume ${PWD}:/pwd --workdir /pwd \
               quay.io/coreos/butane:release'
 
-source <(oc completion zsh)
+#source <(oc completion zsh)
 
+alias vim='/usr/local/nvim-linux64/bin/nvim'
+alias vi='vim'
 
 # Add JBang to environment
 alias j!=jbang
