@@ -1,1 +1,0 @@
-setlocal formatprg=dhall\ format
