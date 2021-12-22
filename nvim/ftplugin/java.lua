@@ -22,12 +22,13 @@ local config = {
     '-Dlog.protocol=true',
     '-Dlog.level=ALL',
     '-Xms1g',
+    '-Xmx2g',
     '--add-modules=ALL-SYSTEM',
     '--add-opens', 'java.base/java.util=ALL-UNNAMED',
     '--add-opens', 'java.base/java.lang=ALL-UNNAMED',
 
     -- 💀
-    '-jar', home .. '/.config/nvim/jdtls/plugins/org.eclipse.equinox.launcher_1.6.400.v20210924-0641.jar',
+    '-jar', vim.fn.expand(home .. '/.config/nvim/jdtls/plugins/org.eclipse.equinox.launcher_*.jar'),
          -- ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^                                       ^^^^^^^^^^^^^^
          -- Must point to the                                                     Change this to
          -- eclipse.jdt.ls installation                                           the actual version
@@ -48,7 +49,7 @@ local config = {
   -- 💀
   -- This is the default if not provided, you can remove it. Or adjust as needed.
   -- One dedicated LSP server & client will be started per unique root_dir
-  root_dir = require('jdtls.setup').find_root({'.git', 'mvnw', 'gradlew'}),
+  root_dir = require('jdtls.setup').find_root({'.git', 'mvnw', 'gradlew', 'pom.xml', 'gradle.build'}),
 
   -- Here you can configure eclipse.jdt.ls specific settings
   -- See https://github.com/eclipse/eclipse.jdt.ls/wiki/Running-the-JAVA-LS-server-from-the-command-line#initialize-request
@@ -71,12 +72,12 @@ local config = {
 
 }
 
---local on_attach = function(client, bufnr)
---    require'jdtls'.setup_dap({ hotcodereplace = 'auto' })
---    require("dapui").setup()
---    require'jdtls.setup'.add_commands()
-----    require'lsp-status'.register_progress()
---end
+local on_attach = function(client, bufnr)
+    require'jdtls'.setup_dap({ hotcodereplace = 'auto' })
+    require("dapui").setup()
+    require'jdtls.setup'.add_commands()
+--    require'lsp-status'.register_progress()
+end
 
 local nvim_lsp = require('lspconfig')
 
@@ -111,19 +112,25 @@ local on_attach = function(client, bufnr)
   buf_set_keymap('n', '<leader>q', '<cmd>lua vim.diagnostic.setloclist()<CR>', opts)
   buf_set_keymap('n', '<leader>f', '<cmd>lua vim.lsp.buf.formatting()<CR>', opts)
 
+--  command! -buffer JdtCompile lua require('jdtls').compile()
+--  command! -buffer JdtUpdateConfig lua require('jdtls').update_project_config()
+--  command! -buffer JdtJol lua require('jdtls').jol()
+--  command! -buffer JdtBytecode lua require('jdtls').javap()
+--  command! -buffer JdtJshell lua require('jdtls').jshell()
+  require('jdtls.setup').add_commands()
 end
 
 -- Use a loop to conveniently call 'setup' on multiple servers and
 -- map buffer local keybindings when the language server attaches
---local servers = { 'jdt.ls' }
---for _, lsp in ipairs(servers) do
---  nvim_lsp[lsp].setup {
---    on_attach = on_attach,
---    flags = {
---      debounce_text_changes = 150,
---    }
---  }
---end
+local servers = { 'jdt.ls' }
+for _, lsp in ipairs(servers) do
+  nvim_lsp[lsp].setup {
+    on_attach = on_attach,
+    flags = {
+      debounce_text_changes = 150,
+    }
+  }
+end
 
 config.on_attach = on_attach
 
