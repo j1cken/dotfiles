@@ -1,2 +1,8 @@
 curl -sL https://git.io/fisher | source && fisher install jorgebucaran/fisher
 fisher install gazorby/fish-exa
+fisher install peco/peco
+fisher install ryanoasis/nerd-fonts
+fisher install jethrokuan/z
+curl https://raw.githubusercontent.com/oh-my-fish/oh-my-fish/master/bin/install | fish
+omf install agnoster
+omf theme agnoster
