@@ -254,6 +254,14 @@ input "7847:36870:Turing_Gaming_Keyboard_Turing_Gaming_Keyboard" {
    xkb_options grp:alt_shift_toggle
 }
 
+input "1452:591:Keychron_Keychron_K6" {
+   xkb_layout us-dvorak-umlauts,de
+   xkb_variant dvorak,nodeadkeys
+   repeat_delay 180
+   repeat_rate 40
+   xkb_options grp:alt_shift_toggle
+}
+
 # autostart
 exec alacritty
 exec google-chrome
