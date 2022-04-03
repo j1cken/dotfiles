@@ -5,7 +5,9 @@ keycode  39 = o O odiaeresis Odiaeresis
 keycode  40 = e E EuroSign
 keycode  41 = u U udiaeresis Udiaeresis
 keycode  47 = s S ssharp
-keycode 108 = Mode_switch Mode_switch Mode_switch Mode_switch
+!keycode 108 = Mode_switch Mode_switch Mode_switch Mode_switch
+! keychron k6
+keycode 105 = Mode_switch Mode_switch Mode_switch Mode_switch
 
 !keycode  10 = ampersand 1 ampersand 1
 !keycode  11 = bracketleft 2 bracketleft 2 currency NoSymbol currency
