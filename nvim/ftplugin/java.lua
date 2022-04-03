@@ -7,6 +7,14 @@ local project_name = vim.fn.fnamemodify(vim.fn.getcwd(), ':p:h:t')
 --                                               string concattenation in Lua
 local home = os.getenv('HOME')
 
+-- This bundles definition is the same as in the previous section (java-debug installation)
+local bundles = {
+  vim.fn.glob(home .. "/development/java-debug/com.microsoft.java.debug.plugin/target/com.microsoft.java.debug.plugin-*.jar"),
+};
+
+-- This is the new part
+vim.list_extend(bundles, vim.split(vim.fn.glob(home .. "/development/microsoft/vscode-java-test/server/*.jar"), "\n"))
+
 local config = {
   -- The command that starts the language server
   -- See: https://github.com/eclipse/eclipse.jdt.ls#running-from-the-command-line
@@ -67,9 +75,13 @@ local config = {
   --
   -- If you don't plan on using the debugger or other eclipse.jdt.ls plugins you can remove this
   init_options = {
-    bundles = {}
+    bundles = bundles
   }
+}
 
+vim.list_extend(bundles, vim.split(vim.fn.glob("/home/torben/development/microsoft/vscode-java-test/server/*.jar"), "\n"))
+config['init_options'] = {
+  bundles = bundles;
 }
 
 local on_attach = function(client, bufnr)
@@ -137,4 +149,27 @@ config.on_attach = on_attach
 -- This starts a new client & server,
 -- or attaches to an existing client & server depending on the `root_dir`.
 require('jdtls').start_or_attach(config)
+require'jdtls'.test_class()
+require'jdtls'.test_nearest_method()
 
+--require'debug'
+
+
+local dap = require('dap')
+-- dap.adapters.java = function(callback, config)
+--   M.execute_command({command = 'vscode.java.startDebugSession'}, function(err0, port)
+--     assert(not err0, vim.inspect(err0))
+--     callback({ type = 'server'; host = '127.0.0.1'; port = port; })
+--   end)
+-- end
+dap.configurations.java = {
+  {
+    type = 'java';
+    request = 'attach';
+    name = "Java Debug (Attach) - Remote";
+    hostName = "127.0.0.1";
+    port = 5005;
+  },
+}
+
+require('jdtls').setup_dap()

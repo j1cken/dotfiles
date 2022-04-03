@@ -1,3 +1,7 @@
+require('packer').startup(function()
+  use 'mfussenegger/nvim-dap'
+end)
+
 local Plug = vim.fn['plug#']
 vim.call('plug#begin','~/.config/nvim/plugged')
 
@@ -54,7 +58,7 @@ Plug('nvim-telescope/telescope-fzf-native.nvim', { ['do'] = 'make' })
 --Plug 'sirtaj/vim-openscad'
 --Plug 'diepm/vim-rest-console'
 Plug 'mfussenegger/nvim-jdtls'
---Plug 'mfussenegger/nvim-dap'
+Plug 'mfussenegger/nvim-dap'
 --Plug 'mfussenegger/nvim-dap-python'
 --Plug 'mfussenegger/nvim-fzy'
 --Plug 'mfussenegger/nvim-lint'
