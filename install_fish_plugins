@@ -1,6 +1,7 @@
-curl -sL https://git.io/fisher | source && fisher install jorgebucaran/fisher
+#curl -sL https://git.io/fisher | source
+fisher install jorgebucaran/fisher
 fisher install gazorby/fish-exa
-fisher install takashabe/fish-peco
+fisher install takashabe/fish-fzf
 fisher install ryanoasis/nerd-fonts
 fisher install jethrokuan/z
 curl https://raw.githubusercontent.com/oh-my-fish/oh-my-fish/master/bin/install | fish

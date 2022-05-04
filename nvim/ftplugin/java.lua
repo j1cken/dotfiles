@@ -13,7 +13,7 @@ local bundles = {
 };
 
 -- This is the new part
-vim.list_extend(bundles, vim.split(vim.fn.glob(home .. "/development/microsoft/vscode-java-test/server/*.jar"), "\n"))
+vim.list_extend(bundles, vim.split(vim.fn.glob(home .. "/development/vscode-java-test/server/*.jar"), "\n"))
 
 local config = {
   -- The command that starts the language server
@@ -43,7 +43,7 @@ local config = {
 
 
     -- 💀
-    '-configuration', home .. '/.config/nvim/jdtls/config_linux',
+    '-configuration', home .. '/.config/nvim/jdtls/config_mac',
                     -- ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^        ^^^^^^
                     -- Must point to the                      Change to one of `linux`, `win` or `mac`
                     -- eclipse.jdt.ls installation            Depending on your system.
@@ -64,7 +64,22 @@ local config = {
   -- for a list of options
   settings = {
     java = {
-    }
+      configuration = {
+                  -- See https://github.com/eclipse/eclipse.jdt.ls/wiki/Running-the-JAVA-LS-server-from-the-command-line#initialize-request
+                -- And search for `interface RuntimeOption`
+                -- The `name` is NOT arbitrary, but must match one of the elements from `enum ExecutionEnvironment` in the link above
+                runtimes = {
+                      {
+                          name = "JavaSE-11",
+                          path = "/Library/Java/JavaVirtualMachines/openjdk-11.jdk/Contents/Home/",
+                      },
+                    {
+                          name = "JavaSE-17",
+                          path = "/Library/Java/JavaVirtualMachines/temurin-17.jdk/Contents/Home/",
+                      },
+                  }
+            }
+       }
   },
 
   -- Language server `initializationOptions`
@@ -79,10 +94,10 @@ local config = {
   }
 }
 
-vim.list_extend(bundles, vim.split(vim.fn.glob("/home/torben/development/microsoft/vscode-java-test/server/*.jar"), "\n"))
-config['init_options'] = {
-  bundles = bundles;
-}
+--vim.list_extend(bundles, vim.split(vim.fn.glob("/home/torben/development/vscode-java-test/server/*.jar"), "\n"))
+--config['init_options'] = {
+--  bundles = bundles;
+--}
 
 local on_attach = function(client, bufnr)
     require'jdtls'.setup_dap({ hotcodereplace = 'auto' })
